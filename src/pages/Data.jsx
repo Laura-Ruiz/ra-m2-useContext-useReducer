@@ -25,6 +25,7 @@ const columns = [
   },
 ]
 
+// Lo he puesto así para comprobar que funciona la paginación, no sé si los datos tendrán que venir más adelante de otra API.
 const data = [
   {
     id: 1,
@@ -40,6 +41,72 @@ const data = [
     age: 75,
     occupation: 'Developer',
   },
+  {
+    id: 3,
+    name: 'Juan',
+    surnames: 'Perez',
+    age: 25,
+    occupation: 'Developer',
+  },
+  {
+    id: 4,
+    name: 'Pedro',
+    surnames: 'Gomez',
+    age: 75,
+    occupation: 'Developer',
+  },{
+    id: 5,
+    name: 'Juan',
+    surnames: 'Perez',
+    age: 25,
+    occupation: 'Developer',
+  },
+  {
+    id: 6,
+    name: 'Pedro',
+    surnames: 'Gomez',
+    age: 75,
+    occupation: 'Developer',
+  },{
+    id: 7,
+    name: 'Juan',
+    surnames: 'Perez',
+    age: 25,
+    occupation: 'Developer',
+  },
+  {
+    id: 8,
+    name: 'Pedro',
+    surnames: 'Gomez',
+    age: 75,
+    occupation: 'Developer',
+  },{
+    id: 9,
+    name: 'Juan',
+    surnames: 'Perez',
+    age: 25,
+    occupation: 'Developer',
+  },
+  {
+    id: 10,
+    name: 'Pedro',
+    surnames: 'Gomez',
+    age: 75,
+    occupation: 'Developer',
+  },{
+    id: 11,
+    name: 'Juan',
+    surnames: 'Perez',
+    age: 25,
+    occupation: 'Developer',
+  },
+  {
+    id: 12,
+    name: 'Pedro',
+    surnames: 'Gomez',
+    age: 75,
+    occupation: 'Developer',
+  }
 ]
 
 function Data() {
