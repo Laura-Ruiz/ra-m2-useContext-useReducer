@@ -3,13 +3,8 @@ import { createNextState } from '@reduxjs/toolkit'
 export const initialState = {
   data: [],
   columns: [],
-  pagination: {
-    currentPage: 1,
-    itemsPerPage: 10
-  },
-
-  isLoading: false,
-  
+  currentPage: 1,
+  itemsPerPage: 10,
 }
 
 export const Actions = {
@@ -17,7 +12,6 @@ export const Actions = {
   SET_COLUMNS: 'SET_COLUMNS',
   SET_CURRENTPAGE: 'SET_CURRENTPAGE',
   SET_ITEMSPERPAGE: 'SET_ITEMSPERPAGE',
-  SET_LOADING: 'SET_LOADING'
 }
 
 // eslint-disable-next-line default-param-last
@@ -34,16 +28,11 @@ export const tableReducer = (state = initialState, action) => {
       })
     case Actions.SET_CURRENTPAGE:
       return createNextState(state, (draft) => {
-        draft.pagination.currentPage = action.payload
+        draft.currentPage = action.payload
       })
     case Actions.SET_ITEMSPERPAGE:
       return createNextState(state, (draft) => {
-        draft.pagination.itemsPerPage = action.payload
-      })
-
-    case Actions.SET_LOADING:
-      return createNextState(state, (draft) => {
-        draft.pagination.itemsPerPage = action.payload
+        draft.itemsPerPage = action.payload
       })
       
     default:

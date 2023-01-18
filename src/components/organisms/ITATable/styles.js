@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { FlexBox } from '../../../styles'
 
 export const TableCell = styled.td`
   border: 1px solid;
@@ -23,7 +22,9 @@ export const SpanStyled = styled.span`
   align-items: center;
 `
 
-export const StyledTd = styled(FlexBox)`
-flex-direction:row;
-justify-content: ${props => props.justifyContent || ""}
+export const TFooterStyled = styled.div`
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-top: none;
 `

@@ -1,44 +1,40 @@
+/* eslint-disable react/forbid-prop-types */
 import { useEffect, useContext } from 'react'
+import PropTypes from 'prop-types'
 import TableProvider, { TableContext } from './store/context'
 import { Actions } from './store/reducer'
-import { TableStyled, DownloadStyled } from './styles'
+import { TableStyled } from './styles'
 import TableBody from './TableBody'
 import TableHeader from './TableHeader'
-// eslint-disable-next-line import/named
-import { Button } from '../../atoms'
+import TableFooter from './TableFooter'
+import DownloadButton from '../../molecules/DownloadButton'
+import Shimmer from './Shimmer'
 
-function Table({ columns, data, showHeader = true }) {
-  const { dispatch, state } = useContext(TableContext)
+
+function Table({ columns, data, showHeader = true, isLoading }) {
+  const { dispatch } = useContext(TableContext)
 
   useEffect(() => {
-    dispatch({ type: Actions.SET_DATA, payload: data })
+    if(data){
+      dispatch({ type: Actions.SET_DATA, payload: Object.values(data) })
+    }
+    
     dispatch({ type: Actions.SET_COLUMNS, payload: columns })
   }, [data, columns, dispatch])
 
 
-  const handleDownload = () => {
-    const jsonData = JSON.stringify(state.data);
-    const blob = new Blob([jsonData], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'table-data.json';
-    link.click();
-  }
-
-  
   return (
     <>
-      <DownloadStyled>
-        <Button onClick={handleDownload} backgroundColor = "#38bb47">
-          Descargar
-        </Button>
-      </DownloadStyled>
-      {state.isLoading ? "...loadin" :
+      <DownloadButton/>
+      {isLoading ? <Shimmer row = {11} columns ={5}/> :
+      <>
       <TableStyled>
-        {showHeader && <TableHeader />}
-        <TableBody />
-      </TableStyled>
+          {showHeader && <TableHeader />}
+          <TableBody />
+        </TableStyled>
+        <TableFooter />
+      </>
+
       }
     </>
   )
@@ -50,6 +46,14 @@ function ITATable(props) {
       <Table {...props} />
     </TableProvider>
   )
+}
+
+
+Table.propTypes = {
+  data: PropTypes.object,
+  columns: PropTypes.array,
+  showHeader: PropTypes.bool,
+  isLoading: PropTypes.bool
 }
 
 export default ITATable
