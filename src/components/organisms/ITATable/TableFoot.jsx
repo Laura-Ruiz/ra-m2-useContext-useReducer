@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { TableContext } from './store/context'
 // eslint-disable-next-line import/named
-import { Button, Icon, Select, SelectOption } from '../../atoms'
+import { Button, Icon, Select, SelectOption } from '../../atoms' // El error de aquí es raro...
 import { SpanStyled, StyledTd } from './styles'
 
+// LLamarlo TableFooter
 export default function TableFoot() {
   const { state, dispatch } = useContext(TableContext)
   const { currentPage, itemsPerPage } = state.pagination
@@ -13,20 +14,21 @@ export default function TableFoot() {
     dispatch({ type: 'SET_ITEMSPERPAGE', payload: Number(value) })
   }
 
-  const totalPages = Math.ceil(state.data.length / itemsPerPage);
+  const totalPages = Math.ceil(state.data.length / itemsPerPage)
 
   const handlePreviousClick = () => {
     if (currentPage > 1) {
-    dispatch({ type: 'SET_CURRENTPAGE', payload: currentPage - 1 })
+      dispatch({ type: 'SET_CURRENTPAGE', payload: currentPage - 1 })
     }
-  };
+  }
 
   const handleNextClick = () => {
     if (currentPage < totalPages) {
-        dispatch({ type: 'SET_CURRENTPAGE', payload: currentPage + 1 })
+      dispatch({ type: 'SET_CURRENTPAGE', payload: currentPage + 1 })
     }
-  };
+  }
 
+  // No declarar constantes dentro de una función, cada vez que renderiza vuelve a declararse.
   const options = [
     { value: 10, label: 10 },
     { value: 25, label: 25 },
@@ -34,8 +36,12 @@ export default function TableFoot() {
   ]
 
   return (
+    // Al usar tfoot, no puedes introducir divs y generar html valido.
+    // Fijate en la consola.
+    // Mejor usar un div y darle estilos.
     <tfoot>
       <tr>
+        {/* Separar paginación en otro componente */}
         <StyledTd>
           <Button
             boxShadow="none"
@@ -44,7 +50,9 @@ export default function TableFoot() {
           >
             <Icon color="black" icon="arrow_back_ios" />
           </Button>
-          <SpanStyled>Página {currentPage} de {totalPages}</SpanStyled>
+          <SpanStyled>
+            Página {currentPage} de {totalPages}
+          </SpanStyled>
           <Button
             boxShadow="none"
             backgroundColor="transparent"
@@ -53,9 +61,11 @@ export default function TableFoot() {
             <Icon color="black" icon="arrow_forward_ios" />
           </Button>
         </StyledTd>
+        {/* No usar td vacios */}
         <td />
         <td />
-        <StyledTd justifyContent ="flex-end">
+        {/* Separar selector de cuantas filas en otro componente */}
+        <StyledTd justifyContent="flex-end">
           <SpanStyled>Mostar</SpanStyled>
           <Select
             id="select"

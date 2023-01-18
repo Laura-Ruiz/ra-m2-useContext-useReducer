@@ -54,7 +54,8 @@ const data = [
     surnames: 'Gomez',
     age: 75,
     occupation: 'Developer',
-  },{
+  },
+  {
     id: 5,
     name: 'Juan',
     surnames: 'Perez',
@@ -67,7 +68,8 @@ const data = [
     surnames: 'Gomez',
     age: 75,
     occupation: 'Developer',
-  },{
+  },
+  {
     id: 7,
     name: 'Juan',
     surnames: 'Perez',
@@ -80,7 +82,8 @@ const data = [
     surnames: 'Gomez',
     age: 75,
     occupation: 'Developer',
-  },{
+  },
+  {
     id: 9,
     name: 'Juan',
     surnames: 'Perez',
@@ -93,7 +96,8 @@ const data = [
     surnames: 'Gomez',
     age: 75,
     occupation: 'Developer',
-  },{
+  },
+  {
     id: 11,
     name: 'Juan',
     surnames: 'Perez',
@@ -106,13 +110,14 @@ const data = [
     surnames: 'Gomez',
     age: 75,
     occupation: 'Developer',
-  }
+  },
 ]
 
 function Data() {
   return (
     <Body>
       <Container style={{ marginTop: '2rem' }}>
+        {/* Usar datos de la API */}
         <ITATable columns={columns} data={data} />
       </Container>
     </Body>
