@@ -3,6 +3,11 @@ import styled from 'styled-components'
 export const TableCell = styled.td`
   border: 1px solid;
   padding: 0.5rem;
+  max-width: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  
 `
 
 export const TableStyled = styled.table`
@@ -11,10 +16,11 @@ export const TableStyled = styled.table`
   width: 100%;
 `
 
-export const DownloadStyled = styled.div`
+export const StyledDiv = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 1rem;
+    align-items: center;
 `
 
 export const SpanStyled = styled.span`

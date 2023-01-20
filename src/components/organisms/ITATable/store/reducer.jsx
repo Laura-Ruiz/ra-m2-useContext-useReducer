@@ -3,6 +3,7 @@ import { createNextState } from '@reduxjs/toolkit'
 export const initialState = {
   data: [],
   columns: [],
+  sortedData: [],
   currentPage: 1,
   itemsPerPage: 10,
 }
@@ -10,6 +11,7 @@ export const initialState = {
 export const Actions = {
   SET_DATA: 'SET_DATA',
   SET_COLUMNS: 'SET_COLUMNS',
+  SET_SORTEDDATA: 'SET_SORTEDDATA',
   SET_CURRENTPAGE: 'SET_CURRENTPAGE',
   SET_ITEMSPERPAGE: 'SET_ITEMSPERPAGE',
 }
@@ -26,6 +28,10 @@ export const tableReducer = (state = initialState, action) => {
       return createNextState(state, (draft) => {
         draft.columns = action.payload
       })
+      case Actions.SET_SORTEDDATA:
+        return createNextState(state, (draft) => {
+          draft.sortedData = action.payload
+        })
     case Actions.SET_CURRENTPAGE:
       return createNextState(state, (draft) => {
         draft.currentPage = action.payload

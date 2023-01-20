@@ -14,7 +14,7 @@ const columns = [
     id: 'price',
     label: 'Precio',
     cell: (row) =>(
-      <span style={{ color: row.price < 500000 ? 'green' : 'red' }}>{row.price}$</span>
+      <span style={{ color: row.price < 500000 ? 'green' : 'red' }}>{row.price}€</span>
     ),
   },
   {

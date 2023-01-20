@@ -4,7 +4,7 @@ import { TableCell } from './styles'
 
 function TableBody() {
   const { state } = useContext(TableContext)
-  const { data, columns, currentPage, itemsPerPage } = state
+  const { sortedData, columns, currentPage, itemsPerPage } = state
   
  
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -12,7 +12,7 @@ function TableBody() {
 
     return (
     <tbody>
-      {data.slice(startIndex, endIndex).map((d) => (
+      {sortedData.slice(startIndex, endIndex).map((d) => (
         <tr key={d.id}>
           {columns
             .filter((col) => !col.isHidden)
