@@ -15,7 +15,7 @@ function TableHeader() {
         {columns
           .filter((col) => !col.isHidden)
           .map((col) => (
-            <TableCell as="th" key={col.id} onClick={() => dispatch({ type: Actions.SET_SORTEDDATA, payload: col.id})}>
+            <TableCell as="th" key={col.id} onClick={() => {if(col.sortColumn) dispatch({ type: Actions.SET_SORTEDDATA, payload: col.id})}}>
               {col.label}
               {col.sortColumn &&  <IconsTable column={col.id} />}
             </TableCell>
