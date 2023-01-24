@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
-const Icon = styled.span.attrs(({ icon , color}) => ({
+const Icon = styled.span.attrs(({ icon , color, margin, fontSize}) => ({
   children: icon,
   className: 'material-symbols-outlined',
   style: {
-    color
+    color,
+    fontSize,
+    margin
   }
 }))`
   font-variation-settings: ${({ fill, wght, grad, opsz }) =>

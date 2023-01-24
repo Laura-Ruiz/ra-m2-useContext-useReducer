@@ -9,6 +9,7 @@ const columns = [
   {
     id: 'title',
     label: 'Título',
+    sortColumn: true,
   },
   {
     id: 'price',
@@ -16,18 +17,22 @@ const columns = [
     cell: (row) =>(
       <span style={{ color: row.price < 500000 ? 'green' : 'red' }}>{row.price}€</span>
     ),
+    sortColumn: true,
   },
   {
     id: 'type',
     label: 'Tipo',
+    sortColumn: true,
   },
   {
     id: 'city',
     label: 'Ciudad',
+    sortColumn: true,
   },
   {
     id: 'district',
     label: 'Districto',
+    sortColumn: true,
   },
 ]
 
